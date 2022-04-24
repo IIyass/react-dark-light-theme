@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "types": "lib/index.d.ts",
   "module": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IIyass/react-dark-light-theme"
+  },
   "scripts": {
     "build": "npm run tsc &&  rollup -c",
     "start": "rollup -c -w",
