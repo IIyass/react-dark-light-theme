@@ -1,54 +1,48 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from 'react'
 
 interface CustomStyle {
-  lightColor: string;
-  darkColor: string;
+  lightColor: string
+  darkColor: string
 }
 
 export enum Modes {
-  DARK = "dark",
-  LIGHT = "light",
+  DARK = 'dark',
+  LIGHT = 'light',
 }
 
 export const ThemeContext = createContext<{
-  mode: Modes;
-  changeMode: () => void;
+  mode: Modes
+  changeMode: () => void
 }>({
   mode: Modes.LIGHT,
   changeMode: () => {},
-});
+})
 
-const DarkLightModeProvider = (props: {
-  children:
-    | boolean
-    | React.ReactChild
-    | React.ReactFragment
-    | React.ReactPortal
-    | null
-    | undefined;
-  customStyle: CustomStyle;
+export const DarkLightModeProvider = (props: {
+  children: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined
+  customStyle: CustomStyle
 }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(false)
 
   const changeTheme = () => {
-    setDarkMode(!darkMode);
-  };
+    setDarkMode(!darkMode)
+  }
 
   useEffect(() => {
     if (typeof window != undefined) {
-      setDarkMode(window.localStorage.getItem("mode") === Modes.DARK);
+      setDarkMode(window.localStorage.getItem('mode') === Modes.DARK)
     }
-  }, [typeof window]);
+  }, [typeof window])
 
   useEffect(() => {
     if (darkMode) {
-      document.body.style.background = props.customStyle.darkColor;
-      localStorage.setItem("mode", Modes.DARK);
+      document.body.style.background = props.customStyle.darkColor
+      localStorage.setItem('mode', Modes.DARK)
     } else {
-      document.body.style.background = props.customStyle?.lightColor;
-      localStorage.setItem("mode", Modes.LIGHT);
+      document.body.style.background = props.customStyle?.lightColor
+      localStorage.setItem('mode', Modes.LIGHT)
     }
-  }, [darkMode]);
+  }, [darkMode])
 
   return (
     <ThemeContext.Provider
@@ -59,7 +53,5 @@ const DarkLightModeProvider = (props: {
     >
       {props.children}
     </ThemeContext.Provider>
-  );
-};
-
-export { DarkLightModeProvider };
+  )
+}
