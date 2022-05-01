@@ -1,6 +1,6 @@
 🚀 Getting Start
 
-Using <span style="color: green"> npm:</span>
+Using <span> npm:</span>
 
 ```js
   npm install react-dark-light-theme --save
@@ -21,7 +21,15 @@ export default () => {
       size={80}
     />
   );
-};```
+};
+```
+
+```css
+   span {
+       color:Red
+   }
+```
+
 
 
 ````
