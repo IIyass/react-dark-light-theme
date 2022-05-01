@@ -24,12 +24,14 @@ export default () => {
 };
 ```
 
-```css
-   span {
-       color:Red
-   }
-```
+
 
 
 
 ````
+
+```css
+span {
+  color: red;
+}
+```
