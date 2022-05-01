@@ -1,4 +1,4 @@
-🚀 #Installation
+🚀 # Installation
 
 ```jsx
   npm install react-dark-light-theme --save
