@@ -1,37 +1,46 @@
-🚀 Getting Start
+🚀 Installation
 
-Using <span> npm:</span>
-
-```js
+```jsx
   npm install react-dark-light-theme --save
 ```
 
+📌 How it works
+
+By using the context API from React in react-dark-light-theme, you'll be able to access the mode variable that can be `html light` or `html dark` and the changeMode function to change the current theme.
+
 ✨ Usage
+
+`````jsx
+import React, { useState } from 'react'
+import { DarkLightModeProvider } from 'react-dark-light-theme'
+
+const App = () => {
+  const darkLightThemeStyle = { lightColor: '#fff', darkColor: '#000' }
+  return (
+    <DarkLightModeProvider customStyle={darkLightThemeStyle}>
+      <NavBar />
+    </DarkLightModeProvider>
+  )
+}
+;```
+
 
 ````jsx
 import React, {useState} from "react";
-import DarkModeToggle from "react-dark-mode-toggle";
+import { useDarkLightMode } from 'react-dark-light-theme';
+import NightModeIcon from 'assets/icons/NightModeIcon';
+import LightModeIcon from 'assets/icons/LightModeIcon';
 
-export default () => {
-  const [isDarkMode, setIsDarkMode] = useState(() => false);
+const NavBar = () => {
+  const { mode, changeMode } = useDarkLightMode();
   return (
-    <DarkModeToggle
-      onChange={setIsDarkMode}
-      checked={isDarkMode}
-      size={80}
-    />
+    <div>
+       {mode === 'dark' ? <LightModeIcon/> : <NightModeIcon />}
+       <button type="button" onClick={changeMode}>
+            Change Mode
+       </button>
+    </div>
   );
 };
 ```
-
-
-
-
-
-````
-
-```css
-span {
-  color: red;
-}
-```
+`````
