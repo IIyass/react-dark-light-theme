@@ -9,6 +9,16 @@
     "type": "git",
     "url": "https://github.com/IIyass/react-dark-light-theme"
   },
+  "keywords": [
+    "react",
+    "typescript",
+    "javascript",
+    "button",
+    "dark",
+    "night",
+    "light",
+    "mode"
+  ],
   "scripts": {
     "build": "npm run tsc &&  rollup -c",
     "start": "rollup -c -w",

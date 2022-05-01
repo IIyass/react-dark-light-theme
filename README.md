@@ -1,14 +1,14 @@
-🚀 **Installation**
+🚀 #Installation
 
 ```jsx
   npm install react-dark-light-theme --save
 ```
 
-📌 **How it works**
+📌 #How it works
 
 By using the context API from React in react-dark-light-theme, you'll be able to access the mode variable that can be `light` or `dark` and the changeMode function to change the current theme.
 
-✨ **Usage**
+✨ #Usage
 
 ```jsx
 import React, { useState } from 'react'
